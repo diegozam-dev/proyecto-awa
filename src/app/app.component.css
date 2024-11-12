@@ -1,3 +1,4 @@
-.landing-page{
+.main-content{
     margin-top: 80px;
+    min-height: calc(100vh - 158.79px);
 }

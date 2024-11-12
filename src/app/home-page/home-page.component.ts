@@ -17,7 +17,7 @@ export class HomePageComponent {
     }
   }
 
-  // goToManageUsers() {
-  //   this.router.navigate(['/manage-patients']);
-  // }
+  goToManageUsers() {
+    this.router.navigate(['/manage-users']);
+  }
 }

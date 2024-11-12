@@ -21,6 +21,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ManageUsersPageComponent } from './manage-users-page/manage-users-page.component';
+import { HandleUserService } from './services/handleUsers.service';
 // import { USERS_DATA } from './data/users.data';
 // import { IUser } from './interfaces/user.interface';
 
@@ -32,6 +34,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     LoginComponent,
     LandingPageComponent,
     HomePageComponent,
+    ManageUsersPageComponent,
   ],
   imports: [
     MatCardModule,
@@ -49,7 +52,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule,
     MatIconModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, HandleUserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
