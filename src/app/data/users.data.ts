@@ -10,7 +10,7 @@ export const USERS_DATA = new BehaviorSubject<IUser[]>([
     phoneNumber: '0964656463',
     email: 'diego@gmail.com',
     password: '12345',
-    rol: 'admin',
+    rol: 'administrador',
   },
   {
     ci: '0923434324',
@@ -20,17 +20,17 @@ export const USERS_DATA = new BehaviorSubject<IUser[]>([
     phoneNumber: '0933776698',
     email: 'jeremy@gmail.com',
     password: '12345',
-    rol: 'admin',
+    rol: 'administrador',
   },
   {
-    ci: '0973647646',
+    ci: '0944535353',
     firstName: 'Luisa Maria',
     lastName: 'Burgos Pluas',
     age: 21,
     phoneNumber: '0933448762',
     email: 'luisa@gmail.com',
     password: '12345',
-    rol: 'patient',
+    rol: 'paciente',
   },
   {
     ci: '0987437777',
@@ -40,7 +40,7 @@ export const USERS_DATA = new BehaviorSubject<IUser[]>([
     phoneNumber: '0933334455',
     email: 'jhon@gmail.com',
     password: '12345',
-    rol: 'patient',
+    rol: 'paciente',
   },
   {
     ci: '0933223456',
@@ -50,6 +50,6 @@ export const USERS_DATA = new BehaviorSubject<IUser[]>([
     phoneNumber: '0999883345',
     email: 'julio@gmail.com',
     password: '12345',
-    rol: 'patient',
+    rol: 'paciente',
   },
 ]);

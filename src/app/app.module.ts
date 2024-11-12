@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, Validator } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -12,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { UpdateUserDialogComponent } from './dialogs/index';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,8 +25,12 @@ import { AuthService } from './services/auth.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ManageUsersPageComponent } from './manage-users-page/manage-users-page.component';
 import { HandleUserService } from './services/handleUsers.service';
-// import { USERS_DATA } from './data/users.data';
-// import { IUser } from './interfaces/user.interface';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,7 @@ import { HandleUserService } from './services/handleUsers.service';
     LandingPageComponent,
     HomePageComponent,
     ManageUsersPageComponent,
+    UpdateUserDialogComponent,
   ],
   imports: [
     MatCardModule,
@@ -51,6 +58,13 @@ import { HandleUserService } from './services/handleUsers.service';
     MatToolbarModule,
     AppRoutingModule,
     MatIconModule,
+    MatCardModule,
+    MatTableModule,
+    FormsModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
   ],
   providers: [AuthService, HandleUserService],
   bootstrap: [AppComponent],
