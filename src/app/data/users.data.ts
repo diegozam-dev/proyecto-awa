@@ -1,0 +1,55 @@
+import { BehaviorSubject } from 'rxjs';
+import { IUser } from '../interfaces/user.interface';
+
+export const USERS_DATA = new BehaviorSubject<IUser[]>([
+  {
+    ci: '0973647646',
+    firstName: 'Juan Diego',
+    lastName: 'Zambrano Quito',
+    age: 22,
+    phoneNumber: '0964656463',
+    email: 'diego@gmail.com',
+    password: '12345',
+    rol: 'admin',
+  },
+  {
+    ci: '0923434324',
+    firstName: 'Jeremy',
+    lastName: 'Quinde',
+    age: 28,
+    phoneNumber: '0933776698',
+    email: 'jeremy@gmail.com',
+    password: '12345',
+    rol: 'admin',
+  },
+  {
+    ci: '0973647646',
+    firstName: 'Luisa Maria',
+    lastName: 'Burgos Pluas',
+    age: 21,
+    phoneNumber: '0933448762',
+    email: 'luisa@gmail.com',
+    password: '12345',
+    rol: 'patient',
+  },
+  {
+    ci: '0987437777',
+    firstName: 'Jhon',
+    lastName: 'Doe',
+    age: 32,
+    phoneNumber: '0933334455',
+    email: 'jhon@gmail.com',
+    password: '12345',
+    rol: 'patient',
+  },
+  {
+    ci: '0933223456',
+    firstName: 'Julio',
+    lastName: 'Cepeda',
+    age: 26,
+    phoneNumber: '0999883345',
+    email: 'julio@gmail.com',
+    password: '12345',
+    rol: 'patient',
+  },
+]);

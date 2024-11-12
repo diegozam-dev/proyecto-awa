@@ -1,0 +1,43 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar button {
+  margin-left: 8px;
+  color: white;
+  font-size: 1rem;
+}
+
+.useremail {
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.mat-mdc-unelevated-button{
+  background-color: #0069d3;
+}
+
+.toolbar .mat-mdc-unelevated-button:hover{
+  background-color: #576dff;
+}
+
+.toolbar button:hover{
+  background-color: #0069d3;
+}
+
+.toolbar span{
+  color: white;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.toolbar {
+  background-color: #303F9F;
+  position: fixed;
+  padding: 0 3rem;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  z-index: 100;
+}
