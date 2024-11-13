@@ -1,17 +1,20 @@
 <header>
   <mat-toolbar class="toolbar">
-    <span>{{ title }}</span>
+    <a href="/">{{ title }}</a>
     <span class="spacer"></span>
-    @if(isLoggedIn()) { 
-      <span class="useremail">{{userEmail || 'Diego'}}</span>
-      <button mat-flat-button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+    @if(isLoggedIn()) {
+    <span class="useremail">{{ userEmail || "Diego" }}</span>
+    <button mat-flat-button class="logout-button" (click)="logout()">
+      Cerrar Sesión
+    </button>
     } @else {
+    <button mat-button (click)="scrollTo('hero')">Inicio</button>
     <button mat-button (click)="scrollTo('como-funciona')">
       Cómo funciona
     </button>
     <button mat-button (click)="scrollTo('services')">Servicios</button>
     <button mat-button (click)="scrollTo('acerca-de')">Nosotros</button>
-    <button mat-flat-button class="login-button" routerLink="/login">
+    <button mat-flat-button class="login-button" (click)="goToLogin()">
       Iniciar sesión
     </button>
     <button mat-flat-button class="registro-button">Registrarse</button>

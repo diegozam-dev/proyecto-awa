@@ -37,8 +37,9 @@ export class ManageUsersPageComponent {
     const isLoggedIn = this.authService.isLoggedIn();
 
     if (!isLoggedIn) {
-      this.router.navigate(['/']);
-      alert('No ha iniciado sesión.');
+      this.router.navigate(['/login']).then(() => {
+        alert('No ha iniciado sesión.');
+      });
     }
 
     this.dataSource = new MatTableDataSource(USERS_DATA.getValue());

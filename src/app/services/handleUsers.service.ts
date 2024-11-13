@@ -10,7 +10,7 @@ export class HandleUserService {
   public deleteUser(ci: string): void {
     const filteredUsers = USERS_DATA.getValue().filter(
       (user) => user.ci !== ci
-    ) as IUser[];
+    );
 
     USERS_DATA.next(filteredUsers);
   }

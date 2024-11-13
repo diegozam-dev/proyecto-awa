@@ -22,9 +22,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
-import { HomePageComponent } from './home-page/home-page.component';
 import { ManageUsersPageComponent } from './manage-users-page/manage-users-page.component';
 import { HandleUserService } from './services/handleUsers.service';
+import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -39,9 +39,9 @@ import {
     FooterComponent,
     LoginComponent,
     LandingPageComponent,
-    HomePageComponent,
     ManageUsersPageComponent,
     UpdateUserDialogComponent,
+    AdminHomePageComponent,
   ],
   imports: [
     MatCardModule,

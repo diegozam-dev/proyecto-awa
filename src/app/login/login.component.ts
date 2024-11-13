@@ -29,7 +29,11 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
 
       if (this.authService.login(email, password)) {
-        this.router.navigate(['/home']);
+        if (this.authService.loggedUser.getValue()?.rol === 'administrador') {
+          this.router.navigate(['/admin']);
+        } else {
+          alert('Proximamente');
+        }
       } else {
         alert('Credenciales inválidas');
       }

@@ -24,16 +24,16 @@ export class HeaderComponent {
     }
   }
 
-  goToLogin(): void {
-    this.router.navigate(['/login']);
+  async goToLogin() {
+    await this.router.navigate(['/login']);
   }
 
-  isLoggedIn(): boolean {
+  isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
-  logout(): void {
+  async logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    await this.router.navigate(['/login']);
   }
 }
