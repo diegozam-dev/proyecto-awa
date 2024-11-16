@@ -1,0 +1,51 @@
+.functions-section {
+  padding: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.functions-section div {
+  padding: 0 2rem;
+  min-width: 250px;
+  max-width: 400px;
+  height: 150px;
+  border-radius: 16px;
+  border: 2px solid #0069d3;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.functions-section div p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  user-select: none;
+}
+
+.functions-section div p,
+.functions-section div mat-icon {
+  transition: all 0.2s ease;
+}
+
+.functions-section div:hover {
+  background-color: #0069d3;
+}
+
+.functions-section div:hover p,
+.functions-section div:hover mat-icon {
+  transform: scale(1.1);
+  color: white;
+}
+
+mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 4rem;
+}
