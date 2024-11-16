@@ -1,0 +1,117 @@
+<h2 mat-dialog-title>Actualizar usuario</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="ci-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Número de cédula</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="ci"
+          placeholder="ex. 0999999999"
+        />
+        <mat-error *ngIf="form.get('ci')?.hasError('required')"
+          >Cédula es requerida</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="fields-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="firstName"
+          placeholder="ex. Jhon"
+        />
+        <mat-error *ngIf="form.get('firstName')?.hasError('required')"
+          >Nombre es requerido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="lastName"
+          placeholder="ex. Doe"
+        />
+        <mat-error *ngIf="form.get('lastName')?.hasError('required')"
+          >Apellido es requerido</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="fields-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Edad</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="age"
+          placeholder="ex. 21"
+        />
+        <mat-error *ngIf="form.get('age')?.hasError('required')"
+          >Edad es requerida</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Número teléfono</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="phoneNumber"
+          placeholder="ex. 0999999999"
+        />
+        <mat-error *ngIf="form.get('phoneNumber')?.hasError('required')"
+          >Número de teléfono es requerido</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="fields-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="ex. your.email@domain.com"
+        />
+        <mat-error *ngIf="form.get('email')?.hasError('required')"
+          >Correo es requerido</mat-error
+        >
+        <mat-error *ngIf="form.get('email')?.hasError('email')"
+          >Correo inválido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="ex. 1234@#/"
+        />
+        <mat-error *ngIf="form.get('password')?.hasError('required')"
+          >Contraseña es requerida</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="fields-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="rol">
+          <mat-option value="Administrador">Administrador</mat-option>
+          <mat-option value="Paciente">Paciente</mat-option>
+          <mat-option value="Doctor">Doctor</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('rol')?.hasError('required')"
+          >Rol es requerido</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button (click)="openDialog($event)">Guardar</button>
+  <button mat-button (click)="closeDialog()">Cancelar</button>
+</mat-dialog-actions>
