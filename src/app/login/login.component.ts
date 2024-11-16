@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
 
       if (this.authService.login(email, password)) {
-        if (this.authService.loggedUser.getValue()?.rol === 'administrador') {
+        if (this.authService.loggedUser.getValue()?.rol === 'Administrador') {
           this.router.navigate(['/admin']);
+        } else if (this.authService.loggedUser.getValue()?.rol === 'Paciente') {
+          this.router.navigate(['/patient']);
         } else {
           alert('Proximamente');
         }
