@@ -1,3 +1,4 @@
-import { UpdateUserDialogComponent } from './update-user-dialog/update-user-dialog.component';
+import { UpdateDoctorDialogComponent } from './update-doctor-dialog/update-doctor-dialog.component';
+import { UpdatePatientDialogComponent } from './update-patient-dialog/update-patient-dialog.component';
 
-export { UpdateUserDialogComponent };
+export { UpdateDoctorDialogComponent, UpdatePatientDialogComponent };
