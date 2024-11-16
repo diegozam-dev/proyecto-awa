@@ -13,7 +13,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { UpdateUserDialogComponent } from './dialogs/index';
+import {
+  UpdateDoctorDialogComponent,
+  UpdatePatientDialogComponent,
+} from './dialogs/index';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,9 +25,13 @@ import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
-import { ManageUsersPageComponent } from './manage-users-page/manage-users-page.component';
 import { HandleUserService } from './services/handleUsers.service';
-import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
+import {
+  AdminHomePageComponent,
+  ManageDoctorPageComponent,
+  ManagePatientPageComponent,
+} from './admin-pages/index';
+import { PatientHomePageComponent } from './patient-pages/index';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -39,9 +46,12 @@ import {
     FooterComponent,
     LoginComponent,
     LandingPageComponent,
-    ManageUsersPageComponent,
-    UpdateUserDialogComponent,
+    UpdateDoctorDialogComponent,
+    UpdatePatientDialogComponent,
     AdminHomePageComponent,
+    PatientHomePageComponent,
+    ManagePatientPageComponent,
+    ManageDoctorPageComponent,
   ],
   imports: [
     MatCardModule,
