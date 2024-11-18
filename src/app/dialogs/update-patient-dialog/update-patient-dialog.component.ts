@@ -38,7 +38,7 @@ export class UpdatePatientDialogComponent {
     });
   }
 
-  openDialog(event: MouseEvent) {
+  updatePatient(event: MouseEvent) {
     event.preventDefault();
 
     this.isFormValid.set(this.form.valid);

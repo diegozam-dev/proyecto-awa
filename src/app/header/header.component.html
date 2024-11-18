@@ -3,7 +3,7 @@
     <a href="/">{{ title }}</a>
     <span class="spacer"></span>
     @if(isLoggedIn()) {
-    <span class="useremail">{{ userEmail || "Diego" }}</span>
+    <span class="useremail">{{ userEmail || 'user@email.com' }}</span>
     <button mat-flat-button class="logout-button" (click)="logout()">
       Cerrar Sesión
     </button>
@@ -17,7 +17,7 @@
     <button mat-flat-button class="login-button" (click)="goToLogin()">
       Iniciar sesión
     </button>
-    <button mat-flat-button class="registro-button">Registrarse</button>
+    <button mat-flat-button class="registro-button" (click)="goToRegister()">Registrarse</button>
     }
   </mat-toolbar>
 </header>

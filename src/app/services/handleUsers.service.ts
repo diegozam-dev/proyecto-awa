@@ -26,4 +26,19 @@ export class HandleUserService {
 
     USERS_DATA.next(updatedUsersData);
   }
+
+  public createUser(user: IUser): boolean {
+    const [foundUser] = USERS_DATA.getValue().filter(
+      (currentUser) =>
+        currentUser.ci === user.ci || currentUser.email === user.email
+    );
+
+    if (foundUser) return false;
+
+    const updatedUsersData = [...USERS_DATA.getValue(), user];
+
+    USERS_DATA.next(updatedUsersData);
+
+    return true;
+  }
 }

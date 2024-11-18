@@ -28,6 +28,10 @@ export class HeaderComponent {
     await this.router.navigate(['/login']);
   }
 
+  async goToRegister() {
+    await this.router.navigate(['/register']);
+  }
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

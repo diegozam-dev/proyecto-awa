@@ -13,12 +13,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from './app-routing.module';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import {
   UpdateDoctorDialogComponent,
   UpdatePatientDialogComponent,
 } from './dialogs/index';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,12 +39,7 @@ import {
   ManagePatientPageComponent,
 } from './admin-pages/index';
 import { PatientHomePageComponent } from './patient-pages/index';
-import {
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import {
     PatientHomePageComponent,
     ManagePatientPageComponent,
     ManageDoctorPageComponent,
+    RegisterComponent,
   ],
   imports: [
     MatCardModule,
@@ -75,6 +78,7 @@ import {
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatTabsModule,
   ],
   providers: [AuthService, HandleUserService],
   bootstrap: [AppComponent],

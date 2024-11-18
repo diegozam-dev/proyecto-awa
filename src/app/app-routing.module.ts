@@ -12,10 +12,12 @@ import {
   ConsultAppointmentComponent,
   GenerateAppointmentComponent,
 } from './patient-pages/index';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminHomePageComponent },
   { path: 'admin/manage-patients', component: ManagePatientPageComponent },
   { path: 'admin/manage-doctors', component: ManageDoctorPageComponent },
