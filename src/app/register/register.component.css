@@ -9,6 +9,7 @@ h2 {
 h3 {
   font-size: 32px;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .tab-icon {
@@ -32,4 +33,23 @@ h3 {
 .action-field {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 100%;
+  }
+
+  .form-container {
+    padding: 0 1rem;
+  }
+
+  .fields-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .action-field {
+    margin-top: 2rem;
+  }
 }

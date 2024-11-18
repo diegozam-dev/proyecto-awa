@@ -7,7 +7,13 @@ section {
   background-color: #f0f0f0;
 }
 
-
+@media (max-width: 885px) {
+  .landing-container {
+    padding: 1rem 1rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
 
 .hero {
   display: flex;
@@ -18,21 +24,20 @@ section {
 
 .hero .hero-content {
   flex: 1;
-  padding-right: 5rem;
 }
 
 .hero .hero-content h1 {
-  font-size: 5rem;
-  font-weight: 500;
+  font-size: 4rem;
+  font-weight: 600;
   text-transform:uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
   line-height: 60pt;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero .hero-content p {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 30pt;
 }
 
@@ -47,13 +52,22 @@ section {
   height: auto;
 }
 
+@media (max-width: 885px) {
+  .hero {
+    flex-direction: column;
+    gap: 3rem;
+  }
 
+  .hero .hero-image {
+    max-width: 100%;
+  }
+}
 
 .como-funciona, .acerca-de {
   background-color: #0069d3;
   margin: 4rem 0;
-  padding: 3rem 3rem ;
-  border-radius: 35px;
+  padding: 3rem;
+  border-radius: 24px;
   text-align: center;
   color: white;
 }
@@ -62,33 +76,47 @@ section {
   width: 100%;
 }
 
+.como-funciona h2, .acerca-de h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  margin-bottom: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 4rem;
+}
+
+.como-funciona p{
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+  .como-funciona, .acerca-de {
+    padding: 1rem;
+  }
+
+  .como-funciona img {
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
 .services{
   margin: 4rem 0;
   padding: 3rem 3rem;
   background-color: white;
-}
-
-.como-funciona h2, .acerca-de h2 {
-  font-size: 2rem;
-  margin: 1rem;
-  font-size: 4rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  border-radius: 24px;
 }
 
 .services h2{
   text-align: center;
-  margin: 2rem;
-  font-size: 4rem;
-  font-weight: 600;
+  margin: 24px;
+  font-size: 3rem;
+  font-weight: 500;
   color: #0069d3;
   text-transform: uppercase;
-}
-
-.como-funciona p, .acerca-de p{
-  margin-top: 20px;
-  font-size: 2rem;
-  line-height: 40px;
+  line-height: 4rem;
 }
 
 .service-cards {
@@ -107,7 +135,7 @@ section {
 
 .service-cards mat-card img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   max-height: 300px;
   object-fit: cover;
 }
@@ -115,7 +143,7 @@ section {
 .service-cards mat-card mat-card-title{
   margin: 16px 12px !important;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
   color: white;
   text-align: center;
   margin: 30px 0;
@@ -128,17 +156,54 @@ section {
   margin-bottom: 30px;
 }
 
-.acerca-de .members {
+@media (max-width: 800px) {
+  .services{
+    margin: 4rem 0;
+    padding: 1rem;
+    background-color: white;
+  }
+
+  .services h2 {
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 4rem;
+  }
+  
+  .service-cards {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .service-cards mat-card {
+    max-width: 100%;
+  }
+
+  .service-cards mat-card img {
+    height: 100%;
+  }
+}
+
+.acerca-de {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 3rem 0;
-  gap: 100px;
+}
+
+.members {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .acerca-de .column {
   width: 100%;
   margin: 0 20px;
   max-width: 300px;
+  gap: 1rem;
 }
 
 .column .member-img {
@@ -152,4 +217,17 @@ section {
 
 .acerca-de img{
   height: 200px;
+}
+
+@media (max-width: 700px) {
+  .members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .members .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

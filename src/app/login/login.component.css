@@ -81,3 +81,35 @@ button[type="submit"] {
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 885px) {
+  .login-container {
+    padding-bottom: 3rem;
+  }
+
+  .login-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .login-form {
+    align-items: center;
+    padding: 2rem;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .login-container {
+    padding: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .login-image img {
+    object-position: top;
+    height: 300px;
+  }
+}

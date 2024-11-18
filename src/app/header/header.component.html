@@ -1,23 +1,37 @@
 <header>
   <mat-toolbar class="toolbar">
-    <a href="/">{{ title }}</a>
+    <a href="/" class="logo">{{ title }}</a>
     <span class="spacer"></span>
-    @if(isLoggedIn()) {
-    <span class="useremail">{{ userEmail || 'user@email.com' }}</span>
-    <button mat-flat-button class="logout-button" (click)="logout()">
-      Cerrar Sesión
+
+    <!-- Botón hamburguesa para dispositivos pequeños -->
+    <button class="menu-button" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
     </button>
-    } @else {
-    <button mat-button (click)="scrollTo('hero')">Inicio</button>
-    <button mat-button (click)="scrollTo('como-funciona')">
-      Cómo funciona
-    </button>
-    <button mat-button (click)="scrollTo('services')">Servicios</button>
-    <button mat-button (click)="scrollTo('acerca-de')">Nosotros</button>
-    <button mat-flat-button class="login-button" (click)="goToLogin()">
-      Iniciar sesión
-    </button>
-    <button mat-flat-button class="registro-button" (click)="goToRegister()">Registrarse</button>
-    }
+
+    <!-- Menú de navegación -->
+    <div class="nav-links" [class.active]="menuOpen">
+      @if(isLoggedIn()) {
+      <span class="useremail">{{ userEmail || 'user@email.com' }}</span>
+      <button mat-flat-button class="logout-button" (click)="logout()">
+        Cerrar Sesión
+      </button>
+      } @else if(currentUrl() !== '/' && !isLoggedIn()) {
+      <button mat-flat-button class="login-button" (click)="goToLogin()">
+        Iniciar sesión
+      </button>
+      <button mat-flat-button class="registro-button" (click)="goToRegister()">Registrarse</button>
+      } @else {
+      <button mat-button (click)="scrollTo('hero')">Inicio</button>
+      <button mat-button (click)="scrollTo('como-funciona')">
+        Cómo funciona
+      </button>
+      <button mat-button (click)="scrollTo('services')">Servicios</button>
+      <button mat-button (click)="scrollTo('acerca-de')">Nosotros</button>
+      <button mat-flat-button class="login-button" (click)="goToLogin()">
+        Iniciar sesión
+      </button>
+      <button mat-flat-button class="registro-button" (click)="goToRegister()">Registrarse</button>
+      }
+    </div>
   </mat-toolbar>
 </header>

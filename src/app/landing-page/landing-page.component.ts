@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
   appointmentForm!: FormGroup;
@@ -15,10 +16,10 @@ export class LandingPageComponent implements OnInit {
     'Dermatology',
     'Neurology',
     'Pediatrics',
-    'Orthopedics'
+    'Orthopedics',
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.appointmentForm = this.fb.group({
@@ -30,11 +31,7 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.appointmentForm.valid) {
-      console.log('Form submitted:', this.appointmentForm.value);
-      alert('Appointment scheduled successfully!');
-      this.appointmentForm.reset();
-    }
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 }

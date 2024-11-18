@@ -1,50 +1,135 @@
-.spacer {
-  flex: 1 1 auto;
+/* General Styles */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
-a {
+.logo {
   text-decoration: none;
   font-size: 1.7rem;
   font-weight: 500;
   color: white;
 }
 
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #303F9F;
+  height: 80px;
+}
+
 .toolbar button {
-  margin-left: 8px;
   color: white;
-  font-size: 1rem;
-}
-
-.useremail {
-  font-size: 1rem;
-  margin-right: 1rem;
-}
-
-.mat-mdc-unelevated-button{
-  background-color: #0069d3;
-}
-
-.toolbar .mat-mdc-unelevated-button:hover{
-  background-color: #576dff;
+  font-size: .9rem;
 }
 
 .toolbar button:hover{
   background-color: #0069d3;
 }
 
-.toolbar span{
-  color: white;
-  font-weight: 500;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+.nav-links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: .5rem;
+  transition: transform 0.3s ease-in-out;
 }
 
-.toolbar {
-  background-color: #303F9F;
+/* Ocultar menú en pantallas pequeñas */
+.nav-links {
+  transform: translateX(0); /* Por defecto en desktop */
+  position: static;
+  flex-direction: row;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* Menú hamburguesa en dispositivos móviles */
+.nav-links.active {
+  transform: translateX(100%);
   position: fixed;
-  padding: 0 3rem;
-  top: 0;
-  height: 80px;
-  width: 100%;
-  z-index: 100;
+  top: 80px; /* Debajo del toolbar */
+  right: 0;
+  width: calc(100% - 32px);
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #303F9F;
+  z-index: 99;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mostrar menú en mobile cuando está activo */
+.nav-links.active{
+  transform: translateX(0);
+}
+
+/* Botón hamburguesa */
+.menu-button {
+  padding: .4rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.menu-button mat-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  display: flex;
+}
+
+/* Responsive Styles */
+@media (max-width: 885px) {
+  .spacer {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* Ocultar por defecto */
+  }
+
+  .nav-links.active {
+    display: flex; /* Activar diseño mobile */
+    align-items: center;
+  }
+
+  .toolbar button {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .nav-links button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    padding: 0 1rem;
+  }
+
+  a {
+    font-size: 1.2rem;
+  }
+
+  .toolbar button {
+    font-size: 0.8rem;
+  }
 }
