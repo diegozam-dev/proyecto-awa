@@ -11,7 +11,7 @@
     <!-- Menú de navegación -->
     <div class="nav-links" [class.active]="menuOpen">
       @if(isLoggedIn()) {
-      <span class="useremail">{{ userEmail || 'user@email.com' }}</span>
+      <span class="useremail">{{ userEmail }}</span>
       <button mat-flat-button class="logout-button" (click)="logout()">
         Cerrar Sesión
       </button>

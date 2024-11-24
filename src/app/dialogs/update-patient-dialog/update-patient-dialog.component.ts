@@ -34,7 +34,7 @@ export class UpdatePatientDialogComponent {
       phoneNumber: [this.data.phoneNumber, Validators.required],
       email: [this.data.email, [Validators.required, Validators.email]],
       password: [this.data.password, Validators.required],
-      rol: [this.data.rol, Validators.required],
+      rol: [{ value: this.data.rol, disabled: true }, Validators.required],
     });
   }
 
@@ -46,6 +46,7 @@ export class UpdatePatientDialogComponent {
 
     const user = this.form.value;
     user.ci = this.data.ci;
+    user.rol = this.data.rol;
 
     this.handleUserService.updateUser(user);
     this.dialogRef.close();
