@@ -36,13 +36,20 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
 
       if (this.authService.login(email, password)) {
+        alert('Ha iniciado sesión correctamente...');
         if (this.authService.loggedUser.getValue()?.rol === 'Administrador') {
           this.router.navigate(['/admin']);
-        } else if (this.authService.loggedUser.getValue()?.rol === 'Paciente') {
-          this.router.navigate(['/patient']);
-        } else {
-          alert('Proximamente');
+          return;
         }
+        if (this.authService.loggedUser.getValue()?.rol === 'Paciente') {
+          this.router.navigate(['/patient']);
+          return;
+        }
+        if (this.authService.loggedUser.getValue()?.rol === 'Doctor') {
+          this.router.navigate(['/doctor']);
+          return;
+        }
+        this.router.navigate(['/not-found']);
       } else {
         alert('Credenciales inválidas');
       }
