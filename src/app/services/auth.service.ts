@@ -17,12 +17,14 @@ export class AuthService {
       (entity) => entity.email === email && entity.password === password
     ) as IUser[];
 
+    // Si el usuario existe actualizamos el estado y retornamos true
     if (user) {
       this.isAuthenticated.next(true);
       this.loggedUser.next(user);
       return true;
     }
 
+    // Si el usuario no existe retornamos false
     return false;
   }
 
