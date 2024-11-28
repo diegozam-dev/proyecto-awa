@@ -68,4 +68,8 @@ export class ManageDoctorPageComponent {
   deleteDoctor(row: IUser) {
     this.handleUserService.deleteUser(row.ci);
   }
+
+  goToIndex() {
+    this.router.navigate(['/admin']);
+  }
 }

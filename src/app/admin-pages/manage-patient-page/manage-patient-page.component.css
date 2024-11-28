@@ -40,3 +40,7 @@ table {
 .action-column {
   min-width: 130px;
 }
+
+.btn-return {
+  margin-bottom: .5rem;
+}
