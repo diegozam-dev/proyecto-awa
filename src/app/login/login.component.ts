@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
+      // Si el login se realiza con éxito redirigimos a los usuarios a su página inicial de acuerdo con su rol
       if (this.authService.login(email, password)) {
         alert('Ha iniciado sesión correctamente...');
         if (this.authService.loggedUser.getValue()?.rol === 'Administrador') {
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/doctor']);
           return;
         }
+        // Si el usuario posee un rol no contemplado en el sistema lo redirigimos a nuestra página 404
         this.router.navigate(['/not-found']);
       } else {
         alert('Credenciales inválidas');

@@ -41,13 +41,16 @@ export class UpdatePatientDialogComponent {
   updatePatient(event: MouseEvent) {
     event.preventDefault();
 
+    // Si el formulario no es válido no hacemos nada
     this.isFormValid.set(this.form.valid);
     if (!this.isFormValid()) return;
 
+    // Obtenemos los valores del formulario
     const user = this.form.value;
     user.ci = this.data.ci;
     user.rol = this.data.rol;
 
+    // Actualizamos los datos del usuario y cerramos la ventana
     this.handleUserService.updateUser(user);
     this.dialogRef.close();
   }

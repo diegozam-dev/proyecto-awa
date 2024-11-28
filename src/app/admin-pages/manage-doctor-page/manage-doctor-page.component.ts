@@ -59,7 +59,7 @@ export class ManageDoctorPageComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  updateDoctor(row: IUser) {
+  openUpdateDialog(row: IUser) {
     this.userDialog.open(UpdateDoctorDialogComponent, {
       data: row,
     });

@@ -58,7 +58,7 @@ export class ManagePatientPageComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  updatePatient(row: IUser) {
+  openUpdateDialog(row: IUser) {
     this.userDialog.open(UpdatePatientDialogComponent, {
       data: row,
     });
