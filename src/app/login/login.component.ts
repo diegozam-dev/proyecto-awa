@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -23,6 +23,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  hide = signal(true);
+  clickEvent(event: MouseEvent) {
+    event.preventDefault();
+    this.hide.set(!this.hide());
+    event.stopPropagation();
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {
