@@ -13,6 +13,8 @@ import {
   GenerateAppointmentComponent,
 } from './patient-pages/index';
 import { RegisterComponent } from './register/register.component';
+import { DoctorHomePageComponent } from './doctor-pages/doctor-home-page/doctor-home-page.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -30,7 +32,9 @@ const routes: Routes = [
     component: ConsultAppointmentComponent,
   },
   { path: 'patient', component: PatientHomePageComponent },
-  { path: '**', redirectTo: '' },
+  { path: 'doctor', component: DoctorHomePageComponent },
+  { path: 'not-found', component: NotFoundPageComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({

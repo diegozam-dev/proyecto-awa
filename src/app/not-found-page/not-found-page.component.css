@@ -1,0 +1,26 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f4f6f9;
+}
+
+.not-found-title {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #3f51b5;
+  margin: 0;
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 1rem 0;
+}
+
+.not-found-button {
+  margin-top: 1rem;
+}

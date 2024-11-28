@@ -40,6 +40,8 @@ import {
 } from './admin-pages/index';
 import { PatientHomePageComponent } from './patient-pages/index';
 import { RegisterComponent } from './register/register.component';
+import { DoctorHomePageComponent } from './doctor-pages/doctor-home-page/doctor-home-page.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { RegisterComponent } from './register/register.component';
     ManagePatientPageComponent,
     ManageDoctorPageComponent,
     RegisterComponent,
+    DoctorHomePageComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     MatCardModule,
