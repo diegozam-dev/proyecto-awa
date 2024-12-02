@@ -1,0 +1,80 @@
+<!-- Contenedor principal para la historia clínica y seguimiento -->
+<div class="historia-clinica-seguimiento-container">
+  
+  <!-- Sección izquierda: contiene la información del usuario (paciente o doctor) y la historia clínica -->
+  <div class="left-section">
+    <div class="user-section">
+      
+      <!-- Tarjeta de perfil con información del usuario -->
+      <mat-card class="profile-card">
+        
+        <!-- Vista para el paciente -->
+        <div *ngIf="esPaciente" class="profile-info">
+          <!-- Imagen de perfil del paciente -->
+          <img mat-card-avatar class="profile-image" [src]="'/user-img.jpg'" alt="Foto del paciente" />
+          <!-- Nombre completo del paciente (si existe en 'usuario') -->
+          <h3>{{ usuario?.firstName }} {{ usuario?.lastName }}</h3>
+        </div>
+        
+        <!-- Vista para el doctor -->
+        <div *ngIf="esDoctor" class="search-section">
+          <!-- Formulario de búsqueda de paciente -->
+          <div *ngIf="!pacienteSeleccionado" class="search-container">
+            <!-- Título que instruye al doctor sobre la búsqueda -->
+            <h3>Ingrese la cédula de un paciente</h3>
+            
+            <div class="search-form">
+              <!-- Campo de búsqueda para ingresar la cédula del paciente -->
+              <mat-form-field appearance="outline">
+                <mat-label>Buscar Paciente (Cédula)</mat-label>
+                <input 
+                  matInput 
+                  [(ngModel)]="ciBusqueda" 
+                  #ciInput="ngModel" 
+                  minlength="10" 
+                  maxlength="10" 
+                  required 
+                  (input)="validarCI()">
+                  <!-- Mensajes de error si la cédula no es válida -->
+                  <mat-error *ngIf="ciInput.errors?.['required']">La cédula es obligatoria</mat-error>
+                  <mat-error *ngIf="ciInput.errors?.['minlength'] || ciInput.errors?.['maxlength']">
+                    La cédula debe tener 10 números
+                  </mat-error>
+              </mat-form-field>
+
+              <!-- Botón para realizar la búsqueda, habilitado solo si la cédula es válida -->
+              <button 
+                mat-flat-button 
+                color="primary" 
+                [disabled]="!ciValida" 
+                (click)="buscarPaciente()">Buscar</button>
+            </div>
+          </div>
+      
+          <!-- Información del paciente seleccionado -->
+          <div *ngIf="pacienteSeleccionado" class="profile-info">
+            <!-- Imagen de perfil del paciente seleccionado -->
+            <img mat-card-avatar class="profile-image" [src]="'/user-img.jpg'" alt="Foto del paciente" />
+            <!-- Nombre completo del paciente seleccionado -->
+            <h3>{{ pacienteSeleccionado.firstName }} {{ pacienteSeleccionado.lastName }}</h3>
+            
+            <!-- Botón para regresar al formulario de búsqueda -->
+            <button mat-raised-button color="accent" (click)="regresarBusqueda()">Regresar a búsqueda</button>
+          </div>
+        </div>
+      </mat-card>
+      
+    </div>
+
+    <!-- Sección de historia clínica -->
+    <div class="historia-clinica-section">
+      <app-historia-clinica></app-historia-clinica> <!-- Componente de la historia clínica del paciente -->
+    </div>
+  </div>
+  
+  <!-- Sección de seguimientos -->
+  <div class="seguimientos-section">
+    <app-seguimientos></app-seguimientos> <!-- Componente de seguimientos médicos -->
+  </div>
+  
+</div>

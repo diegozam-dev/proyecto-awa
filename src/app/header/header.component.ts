@@ -3,24 +3,26 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css'],
+    standalone: false
 })
 export class HeaderComponent {
-  title = 'MediSchedule';
-  userEmail = '';
+  title = 'CITAMEDI';
+  userName = '';
+  userlastname = '';
   currentUrl = signal('/');
   menuOpen: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
     this.authService.loggedUser.subscribe((user) => {
-      this.userEmail = user?.email as string;
+      this.userName = user?.firstName as string;
+      this.userlastname = user?.lastName as string;
     });
 
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(event);
         this.currentUrl.set(event.url);
       }
     });

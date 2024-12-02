@@ -1,0 +1,23 @@
+<!-- src/app/recordatorios-tratamientos/edit-tratamiento-dialog/edit-tratamiento-dialog.component.html -->
+
+<h2 mat-dialog-title>Editar Tratamiento</h2>
+<mat-dialog-content>
+  <form [formGroup]="editForm">
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="nombre">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Dosis" formControlName="dosis">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Frecuencia" formControlName="frecuencia">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Detalles" formControlName="detalles"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSubmit()" [disabled]="!editForm.valid">Guardar</button>
+</mat-dialog-actions>

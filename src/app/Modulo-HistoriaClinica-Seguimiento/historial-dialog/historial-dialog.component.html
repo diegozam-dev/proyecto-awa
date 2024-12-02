@@ -1,0 +1,72 @@
+<!-- Título del diálogo dependiendo del modo -->
+<h2 mat-dialog-title>
+  <!-- Se define el título dinámicamente basado en el valor de la variable 'modo' -->
+  {{ modo === 'detalles' ? 'Detalle de la Consulta' : modo === 'editar' ? 'Gestión de Historial Clínico' : 'Agregar Historial Clínico' }}
+</h2>
+
+<mat-dialog-content>
+  <!-- Modo Detalles -->
+  <ng-container *ngIf="modo === 'detalles'">
+    <!-- Información detallada de la consulta en modo solo lectura -->
+    <p><strong>Fecha:</strong> {{data.fecha}}</p>
+    <p><strong>Especialidad:</strong> {{data.especialidad}}</p>
+    <p><strong>Diagnóstico:</strong> {{data.diagnostico}}</p>
+    <p><strong>Tratamiento:</strong> {{data.tratamiento}}</p>
+    <!-- Mostrar exámenes solo si existen -->
+    <p *ngIf="data.examenes"><strong>Exámenes:</strong> {{data.examenes}}</p>
+  </ng-container>
+
+  <!-- Modo Editar y Agregar -->
+  <ng-container *ngIf="modo === 'editar' || modo === 'agregar'">
+    <!-- Formulario para editar o agregar un historial clínico -->
+    <form [formGroup]="formularioHistorial">
+      <!-- Campo para seleccionar la fecha de la consulta -->
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="pickerFecha" formControlName="fecha">
+        <mat-datepicker-toggle matSuffix [for]="pickerFecha"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFecha></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Campo para seleccionar la especialidad de la consulta -->
+      <mat-form-field appearance="outline">
+        <mat-label>Especialidad</mat-label>
+        <mat-select formControlName="especialidad">
+          <!-- Opciones de especialidades médicas -->
+          <mat-option value="cardiologia">Cardiología</mat-option>
+          <mat-option value="neurologia">Neurología</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Campo para ingresar el diagnóstico de la consulta -->
+      <mat-form-field appearance="outline">
+        <mat-label>Diagnóstico</mat-label>
+        <textarea matInput formControlName="diagnostico"></textarea>
+      </mat-form-field>
+
+      <!-- Campo para ingresar el tratamiento recomendado -->
+      <mat-form-field appearance="outline">
+        <mat-label>Tratamiento</mat-label>
+        <textarea matInput formControlName="tratamiento"></textarea>
+      </mat-form-field>
+
+      <!-- Campo para ingresar los exámenes realizados (opcional) -->
+      <mat-form-field appearance="outline">
+        <mat-label>Exámenes</mat-label>
+        <textarea matInput formControlName="examenes"></textarea>
+      </mat-form-field>
+    </form>
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <!-- Botón para cerrar el diálogo (modo detalles) o cancelar (modo editar o agregar) -->
+  <button mat-button mat-dialog-close>
+    {{ modo === 'detalles' ? 'Cerrar' : 'Cancelar' }}
+  </button>
+
+  <!-- Botón para guardar los cambios en el modo editar o agregar -->
+  <button mat-raised-button color="primary" *ngIf="modo === 'editar' || modo === 'agregar'" (click)="guardar()">
+    {{ modo === 'editar' ? 'Guardar' : 'Agregar' }}
+  </button>
+</mat-dialog-actions>

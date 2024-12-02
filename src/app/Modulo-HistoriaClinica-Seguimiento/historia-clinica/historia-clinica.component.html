@@ -1,0 +1,77 @@
+<div class="historia-clinica-container">
+  <!-- Título principal de la página -->
+  <h1>Historia Clínica</h1>
+
+  <div class="filter">
+    <!-- Campo de búsqueda con un botón para limpiar la búsqueda -->
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <!-- Input que enlaza con la variable filterValue para el filtrado -->
+      <input matInput [(ngModel)]="filterValue" (input)="applyFilter()" placeholder="Buscar por diagnóstico, especialidad...">
+      <!-- Botón para limpiar el filtro (aparece solo si hay un valor en el campo de búsqueda) -->
+      <button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Botón para añadir un historial clínico, solo visible si el usuario es un doctor -->
+    <button mat-fab extended color="primary" *ngIf="esDoctor" (click)="agregarHistorialClinico()">
+      <mat-icon>add</mat-icon>Añadir Historial
+    </button>
+  </div>
+
+  <!-- Tabla para mostrar los datos de los historiales clínicos -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Columna para mostrar el ID del historial clínico -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.id }} </td>
+    </ng-container>
+
+    <!-- Columna para mostrar la fecha del historial clínico -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.fecha }} </td>
+    </ng-container>
+
+    <!-- Columna para mostrar la especialidad de la consulta -->
+    <ng-container matColumnDef="especialidad">
+      <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.especialidad }} </td>
+    </ng-container>
+
+    <!-- Columna para mostrar el diagnóstico de la consulta -->
+    <ng-container matColumnDef="diagnostico">
+      <th mat-header-cell *matHeaderCellDef> Diagnóstico </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.diagnostico }} </td>
+    </ng-container>
+
+    <!-- Columna para mostrar el tratamiento de la consulta -->
+    <ng-container matColumnDef="tratamiento">
+      <th mat-header-cell *matHeaderCellDef> Tratamiento </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.tratamiento }} </td>
+    </ng-container>
+
+    <!-- Columna para mostrar los exámenes realizados, solo visible si el usuario es un doctor -->
+    <ng-container matColumnDef="examenes" *ngIf="esDoctor">
+      <th mat-header-cell *matHeaderCellDef> Exámenes </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.examenes }} </td>
+    </ng-container>
+
+    <!-- Columna para las acciones (editar y ver detalles) -->
+    <ng-container matColumnDef="accion">
+      <th mat-header-cell class="action-th" *matHeaderCellDef> Acción </th>
+      <td mat-cell *matCellDef="let elemento">
+        <!-- Botón para editar el historial clínico -->
+        <button mat-flat-button color="primary" class="action-button" (click)="actualizarHistorial(elemento)">Editar</button>
+        <!-- Botón para mostrar los detalles del historial clínico -->
+        <button mat-flat-button color="primary" class="action-button" (click)="verDetalleConsulta(elemento)">Mostrar Detalles</button>
+      </td>
+    </ng-container>
+
+    <!-- Fila de cabecera para la tabla, usando las columnas definidas -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Fila de datos de la tabla, usando las columnas definidas -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

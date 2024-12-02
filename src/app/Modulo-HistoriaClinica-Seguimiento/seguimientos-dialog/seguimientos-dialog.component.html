@@ -1,0 +1,63 @@
+<!-- Título del diálogo que cambia dependiendo del modo -->
+<h2 mat-dialog-title>
+  <!-- Determina el título basado en el valor de la variable 'modo' -->
+  {{ modo === 'detalles' ? 'Detalle del Seguimiento' : modo === 'editar' ? 'Editar Seguimiento' : 'Agregar Seguimiento' }}
+</h2>
+
+<mat-dialog-content>
+  <!-- Modo Detalles: Muestra la información completa del seguimiento -->
+  <ng-container *ngIf="modo === 'detalles'">
+    <!-- Muestra la fecha del seguimiento -->
+    <p><strong>Fecha:</strong> {{data.fecha}}</p>
+    <!-- Muestra la nota del seguimiento -->
+    <p><strong>Nota:</strong> {{data.nota}}</p>
+    <!-- Muestra el progreso del seguimiento como porcentaje -->
+    <p><strong>Progreso:</strong> {{data.progreso}}%</p>
+    
+    <!-- Barra de progreso visual que indica el progreso del seguimiento -->
+    <mat-progress-bar mode="determinate" [value]="data.progreso"></mat-progress-bar>
+  </ng-container>
+
+  <!-- Modo Editar o Agregar: Muestra un formulario para editar o agregar un seguimiento -->
+  <ng-container *ngIf="modo === 'editar' || modo === 'agregar'">
+    <!-- Formulario reactivo donde se gestionan los datos del seguimiento -->
+    <form [formGroup]="formularioSeguimiento">
+      <!-- Campo para seleccionar la fecha del seguimiento -->
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <!-- Campo de entrada para la fecha con selector de calendario -->
+        <input matInput [matDatepicker]="pickerFecha" formControlName="fecha">
+        <!-- Botón para abrir el selector de fecha -->
+        <mat-datepicker-toggle matSuffix [for]="pickerFecha"></mat-datepicker-toggle>
+        <!-- Selector de fecha -->
+        <mat-datepicker #pickerFecha></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Campo para ingresar una nota sobre el seguimiento -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nota</mat-label>
+        <textarea matInput formControlName="nota"></textarea>
+      </mat-form-field>
+
+      <!-- Campo para ingresar el progreso del seguimiento en porcentaje -->
+      <mat-form-field appearance="outline">
+        <mat-label>Progreso</mat-label>
+        <!-- Campo numérico con restricciones de 0 a 100 -->
+        <input matInput type="number" formControlName="progreso" min="0" max="100">
+      </mat-form-field>
+    </form>
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <!-- Botón para cerrar el diálogo o cancelar la acción -->
+  <button mat-button mat-dialog-close>
+    <!-- Si el modo es detalles, muestra "Cerrar", si es otro modo, muestra "Cancelar" -->
+    {{ modo === 'detalles' ? 'Cerrar' : 'Cancelar' }}
+  </button>
+  <!-- Botón para guardar o agregar el seguimiento, visible solo en los modos editar o agregar -->
+  <button mat-raised-button color="primary" *ngIf="modo === 'editar' || modo === 'agregar'" (click)="guardar()">
+    <!-- Si el modo es editar, muestra "Guardar", si es agregar, muestra "Agregar" -->
+    {{ modo === 'editar' ? 'Guardar' : 'Agregar' }}
+  </button>
+</mat-dialog-actions>

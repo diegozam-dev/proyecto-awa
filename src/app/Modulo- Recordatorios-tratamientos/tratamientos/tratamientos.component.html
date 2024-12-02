@@ -1,0 +1,82 @@
+<!-- src/app/recordatorios-tratamientos/tratamientos/tratamientos.component.html -->
+
+<div class="tratamientos-container">
+  <div class="historial">
+    <h3>Historial de Tratamientos</h3>
+    <table mat-table [dataSource]="tratamientos">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="dosis">
+        <th mat-header-cell *matHeaderCellDef> Dosis </th>
+        <td mat-cell *matCellDef="let element"> {{element.dosis}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="frecuencia">
+        <th mat-header-cell *matHeaderCellDef> Frecuencia </th>
+        <td mat-cell *matCellDef="let element"> {{element.frecuencia}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="tratamientos-list">
+    <mat-accordion>
+      <mat-expansion-panel *ngIf="isDoctor()">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Agregar tratamiento
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="tratamientoForm" (ngSubmit)="addTratamiento()">
+          <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="nombre">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Dosis" formControlName="dosis">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Frecuencia" formControlName="frecuencia">  
+          </mat-form-field>
+          <!-- Añadido form field para agregar detalles-->
+          <mat-form-field>
+            <input matInput placeholder="Detalles" formControlName="detalles">
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!tratamientoForm.valid">
+            Agregar
+          </button>
+        </form>
+      </mat-expansion-panel>
+      <mat-expansion-panel *ngFor="let tratamiento of tratamientos">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ tratamiento.nombre }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <span>{{tratamiento.detalles}}</span>
+          <span>{{ tratamiento.dosis }}  -  {{ tratamiento.frecuencia }}</span>
+        </mat-panel-description>
+        <!-- Botones de editar y eliminar (solo visibles para el rol Doctor) -->
+        <ng-container *ngIf="isDoctor()">
+          <button mat-icon-button color="primary" (click)="editTratamiento(tratamiento)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTratamiento(tratamiento.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+

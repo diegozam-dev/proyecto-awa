@@ -1,0 +1,89 @@
+/* src/app/recordatorios-tratamientos/tratamientos/tratamientos.component.css */
+
+.tratamientos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.tratamientos-list {
+  width: 100%;
+}
+
+.historial {
+  width: 100%;
+  margin-bottom: 20px ;
+}
+
+mat-accordion {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.tratamientos-list form{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tratamientos-list form button{
+  top: -10px;
+}
+
+@media (min-width: 768px) {
+  .tratamientos-list {
+    width: 45%;
+  }
+
+  .historial {
+    width: 50%;
+  }
+
+  .tratamientos-list form{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 599x) {
+  .mat-table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .tratamientos-container{
+    max-width: 600px;
+  }
+
+  .tratamientos-list form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+
+  .tratamientos-list form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tratamientos-list form mat-form-field{
+    width: 100%;
+  }
+}

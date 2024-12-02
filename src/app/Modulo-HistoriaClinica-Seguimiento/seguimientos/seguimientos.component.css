@@ -1,0 +1,53 @@
+.seguimientos-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.seguimientos-container h2{
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.progreso-card{
+  background-color: #FFEB3B     ;
+  color: #616161;
+  padding: 20px;
+}
+
+.progreso-card mat-card-title{
+  text-align: center;
+  margin: 10px;
+  font-weight: 500;
+}
+
+
+.seguimientos-table {
+  margin: 30px 0;
+}
+
+.seguimientos-table tr th{
+  background-color: #303F9F;
+  color: white;
+  text-align: center;
+}
+
+.mdc-data-table__cell{
+  width: auto;
+  height: 70px;
+}
+
+.mat-mdc-mini-fab {
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+/* 1. Rojo (para la luz roja)
+Tonalidad recomendada: #D32F2F (Rojo intenso)
+2. Amarillo (para la luz amarilla)
+Tonalidad recomendada: #FFEB3B (Amarillo brillante)
+3. Verde (para la luz verde)
+Tonalidad recomendada: #388E3C (Verde fuerte) */

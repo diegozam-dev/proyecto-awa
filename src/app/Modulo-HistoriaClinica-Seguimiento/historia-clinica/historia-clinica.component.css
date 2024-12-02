@@ -1,0 +1,62 @@
+.historia-clinica-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 100vh;
+    padding: 50px;
+  }
+
+  h1{
+    font-weight: 700;
+    color: #1b2631;
+    text-transform: uppercase;
+  }
+  
+  .filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+  .filter mat-form-field{
+    width: 60%;
+    margin-right: 20px;
+  }
+
+  .filter ::ng-deep .mat-mdc-text-field-wrapper {
+    border-radius: 10px;
+  }
+
+  .filter button{
+    top: -10px;
+  }
+
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  .action-button{
+    width: 150px;
+  }
+
+  /* .action-th{
+    text-align: center;
+    padding-right: 60px; 
+  } */
+
+  tr th{
+    background-color: #303F9F;
+    color: white;
+    text-transform:uppercase;
+    text-align: center;
+  }
+
+  .mdc-data-table__cell{
+    text-align: center;
+  }

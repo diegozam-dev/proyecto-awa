@@ -1,0 +1,68 @@
+/* src/app/recordatorios-tratamientos/recordatorios/recordatorios.component.css */
+
+.recordatorios-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.recordatorios-list {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.recordatorios-list .expanded-form{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.expanded-form button{
+  top: -15px;
+}
+
+.calendario {
+  width: 100%;
+}
+
+mat-expansion-panel {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .recordatorios-list {
+    width: 34%;
+    margin-bottom: 0;
+  }
+
+  .calendario {
+    width: 65%;
+    max-width: 48%;
+    padding: 0 100px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  .recordatorios-list {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
+  .calendario {
+    width: 59%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 799px) {
+  .recordatorios-container{
+    min-width: 500px;
+  }
+}

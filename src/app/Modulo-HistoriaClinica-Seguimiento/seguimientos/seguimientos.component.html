@@ -1,0 +1,68 @@
+<div class="seguimientos-container">
+  <h2>Seguimiento del Progreso</h2>
+
+  <!-- MatCard para el progreso total -->
+  <mat-card class="progreso-card">
+    <mat-card-title>Progreso Total</mat-card-title>
+    <mat-progress-bar mode="determinate"  [value]="obtenerProgresoTotal()"></mat-progress-bar>
+    <p>{{ obtenerProgresoTotal() }}%</p>
+  </mat-card>
+
+  <!-- Tabla de seguimientos -->
+  <table mat-table [dataSource]="seguimientos" class="seguimientos-table" matSort>
+    <!-- Columna: Fecha -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let seguimiento">{{ seguimiento.fecha | date: 'shortDate' }}</td>
+    </ng-container>
+
+    <!-- Columna: Nota -->
+    <ng-container matColumnDef="nota">
+      <th mat-header-cell *matHeaderCellDef>Nota</th>
+      <td mat-cell *matCellDef="let seguimiento">{{ seguimiento.nota }}</td>
+    </ng-container>
+
+    <!-- Columna: Progreso (solo paciente) -->
+    <ng-container matColumnDef="progreso" *ngIf="!esDoctor">
+      <th mat-header-cell *matHeaderCellDef>Progreso</th>
+      <td mat-cell *matCellDef="let seguimiento">
+        <mat-progress-bar mode="determinate" [value]="seguimiento.progreso"></mat-progress-bar>
+        {{ seguimiento.progreso }}%
+      </td>
+    </ng-container>
+
+    <!-- Columna: Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let seguimiento">
+        <!-- Botón: Detalles (ambos roles) -->
+        <button mat-mini-fab color="primary" (click)="abrirDialogo('detalles', seguimiento)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <!-- Botones adicionales (solo doctor) -->
+        <ng-container *ngIf="esDoctor">
+          <button mat-mini-fab color="accent" (click)="abrirDialogo('editar', seguimiento)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab color="warn" (click)="eliminarSeguimiento(seguimiento.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container> 
+      </td>
+    </ng-container>
+
+    <!-- Cabecera de tabla -->
+    <tr mat-header-row 
+        *matHeaderRowDef="esDoctor ? ['fecha', 'nota', 'acciones'] : ['fecha', 'nota', 'progreso', 'acciones']">
+    </tr>
+    <!-- Filas de datos -->
+    <tr mat-row 
+        *matRowDef="let row; columns: esDoctor ? ['fecha', 'nota', 'acciones'] : ['fecha', 'nota', 'progreso', 'acciones']">
+    </tr>
+  </table>
+
+  <!-- Botón para agregar seguimiento (solo doctor) -->
+  <button mat-raised-button color="primary" *ngIf="esDoctor" (click)="abrirDialogo('agregar')">
+    Agregar Nota
+  </button>
+</div>

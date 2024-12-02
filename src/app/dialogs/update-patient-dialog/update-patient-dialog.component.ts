@@ -10,10 +10,11 @@ import { IUser } from '../../interfaces/user.interface';
 import { HandleUserService } from '../../services/handleUsers.service';
 
 @Component({
-  selector: 'app-update-patient-dialog',
-  templateUrl: './update-patient-dialog.component.html',
-  styleUrl: './update-patient-dialog.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-update-patient-dialog',
+    templateUrl: './update-patient-dialog.component.html',
+    styleUrl: './update-patient-dialog.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class UpdatePatientDialogComponent {
   readonly dialogRef = inject(MatDialogRef<UpdatePatientDialogComponent>);

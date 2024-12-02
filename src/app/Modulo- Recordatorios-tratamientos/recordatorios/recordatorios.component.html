@@ -1,0 +1,42 @@
+<!-- src/app/recordatorios-tratamientos/recordatorios/recordatorios.component.html -->
+
+<div class="recordatorios-container">
+  <div class="recordatorios-list">
+    <h2>{{ selectedDate | date:'fullDate' }}</h2>
+    <form [formGroup]="recordatorioForm">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Agregar recordatorio
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expanded-form">
+          <mat-form-field>
+            <input matInput placeholder="Nuevo recordatorio" formControlName="texto">
+            <mat-error *ngIf="recordatorioForm.controls['texto'].hasError('required')">
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Fecha" formControlName="fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <button mat-fab color="primary" (click)="addRecordatorio()">
+            <mat-icon>add</mat-icon>
+          </button>
+      </div>
+      </mat-expansion-panel>
+    </form>
+    
+    <mat-list>
+      <mat-list-item *ngFor="let recordatorio of filteredRecordatorios">
+        {{ recordatorio.texto }} - {{ recordatorio.fecha | date:'shortTime' }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  
+  <div class="calendario">
+    <mat-calendar (selectedChange)="onDateSelected($event)"></mat-calendar>
+  </div>
+</div>

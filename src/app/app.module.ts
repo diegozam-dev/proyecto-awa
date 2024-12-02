@@ -30,7 +30,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Modulo-Registro-Autenticacion/login/login.component';
 import { AuthService } from './services/auth.service';
 import { HandleUserService } from './services/handleUsers.service';
 import {
@@ -38,11 +38,14 @@ import {
   ManageDoctorPageComponent,
   ManagePatientPageComponent,
   ManageAdminPageComponent,
-} from './admin-pages/index';
-import { PatientHomePageComponent } from './patient-pages/index';
-import { RegisterComponent } from './register/register.component';
-import { DoctorHomePageComponent } from './doctor-pages/doctor-home-page/doctor-home-page.component';
+} from './Modulo-Registro-Autenticacion/admin-pages/index';
+import { PatientHomePageComponent } from './Home-Patients/patient-home-page/patient-home-page.component';
+import { RegisterComponent } from './Modulo-Registro-Autenticacion/register/register.component';
+import { DoctorHomePageComponent } from './Home-Doctors/doctor-home-page/doctor-home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { HistoriaClinicaSeguimientoModule } from './Modulo-HistoriaClinica-Seguimiento/historia-clinica-seguimiento.module';
+import { RecordatoriosTratamientosModule } from './Modulo- Recordatorios-tratamientos/recordatorios-tratamientos.module';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     MatDialogContent,
     MatDialogTitle,
     MatTabsModule,
+    MatProgressBar,
+    HistoriaClinicaSeguimientoModule,
+    RecordatoriosTratamientosModule,
   ],
   providers: [AuthService, HandleUserService],
   bootstrap: [AppComponent],
