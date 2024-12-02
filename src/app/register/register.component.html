@@ -244,6 +244,10 @@
             <mat-select formControlName="specialty">
               <mat-option value="Médico General">Médico General</mat-option>
               <mat-option value="Cardiólogo">Cardiólogo</mat-option>
+              <mat-option value="Cardiólogo">Medicina Interna</mat-option>
+              <mat-option value="Cardiólogo">Dermatología</mat-option>
+              <mat-option value="Cardiólogo">Oftalmología</mat-option>
+              <mat-option value="Cardiólogo">Ortopedia</mat-option>
             </mat-select>
             <mat-error *ngIf="doctorForm.get('specialty')?.hasError('required')"
               >Especialidad es requerido</mat-error

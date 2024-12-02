@@ -18,11 +18,15 @@ export class AdminHomePageComponent {
     }
   }
 
-  async goToManagePatients() {
-    await this.router.navigate(['/admin/manage-patients']);
+  goToManagePatients() {
+    this.router.navigate(['/admin/manage-patients']);
   }
 
-  async goToManageDoctors() {
-    await this.router.navigate(['/admin/manage-doctors']);
+  goToManageDoctors() {
+    this.router.navigate(['/admin/manage-doctors']);
+  }
+
+  goToManageAdmins() {
+    this.router.navigate(['/admin/manage-admins']);
   }
 }

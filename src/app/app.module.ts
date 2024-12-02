@@ -37,6 +37,7 @@ import {
   AdminHomePageComponent,
   ManageDoctorPageComponent,
   ManagePatientPageComponent,
+  ManageAdminPageComponent,
 } from './admin-pages/index';
 import { PatientHomePageComponent } from './patient-pages/index';
 import { RegisterComponent } from './register/register.component';
@@ -59,6 +60,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     RegisterComponent,
     DoctorHomePageComponent,
     NotFoundPageComponent,
+    ManageAdminPageComponent,
   ],
   imports: [
     MatCardModule,

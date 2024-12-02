@@ -6,6 +6,7 @@ import {
   AdminHomePageComponent,
   ManageDoctorPageComponent,
   ManagePatientPageComponent,
+  ManageAdminPageComponent,
 } from './admin-pages/index';
 import {
   PatientHomePageComponent,
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminHomePageComponent },
   { path: 'admin/manage-patients', component: ManagePatientPageComponent },
   { path: 'admin/manage-doctors', component: ManageDoctorPageComponent },
+  { path: 'admin/manage-admins', component: ManageAdminPageComponent },
   {
     path: 'patient/generate-appointment',
     component: GenerateAppointmentComponent,
